@@ -1,0 +1,95 @@
+AIM: Working with form controls
+
+A)Create a web form to demonstrate the Adrotator
+Control.
+
+XML File
+<Advertisements>
+<Ad>
+<ImageUrl>rose1.jpg</ImageUrl>
+<NavigateUrl>http://www.1800flowers.com</NavigateUrl>
+<AlternateText>
+Order flowers, roses, gifts and more
+</AlternateText>
+<Impressions>20</Impressions>
+<Keyword>flowers</Keyword>
+</Ad>
+<Ad>
+<ImageUrl>rose2.jpg</ImageUrl>
+<NavigateUrl>http://www.babybouquets.com.au</NavigateUrl>
+<AlternateText>Order roses and flowers</AlternateText>
+<Impressions>20</Impressions>
+<Keyword>gifts</Keyword>
+</Ad>
+<Ad>
+<ImageUrl>rose3.jpeg</ImageUrl>
+<NavigateUrl>http://www.flowers2moscow.com</NavigateUrl>
+<AlternateText>Send flowers to Russia</AlternateText>
+<Impressions>20</Impressions>
+<Keyword>russia</Keyword>
+</Ad>
+</Advertisements>
+
+Default.aspx
+<asp:AdRotator ID="AdRotator1" runat="server"
+DataSourceID="XmlDataSource1" />
+<asp:XmlDataSource ID="XmlDataSource1" runat="server"
+DataFile="~/ADFILE.xml"></asp:XmlDataSource>
+
+
+B) Create web form to demonstrate use User Controls.
+MyUserControl.ascx
+<%@ Control Language="C#" AutoEventWireup="true"
+CodeFile="MyUserControl.ascx.cs" Inherits="MyUserControl" %>
+<h3>This is User Contro1 </h3>
+<table>
+<tr>
+<td>Name</td>
+<td>
+<asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+</td>
+</tr>
+<tr>
+<td>City</td>
+<td><asp:TextBox ID="txtcity" runat="server"></asp:TextBox></td>
+</tr>
+<tr>
+<td></td>
+<td>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<asp:Button ID="txtSave" runat="server" Text="Save"
+onclick="txtSave_Click" />
+</td>
+</tr>
+</table><br />
+<asp:Label ID="Label1" runat="server" ForeColor="White" Text="
+"></asp:Label>
+MyUserControl.ascx.cs
+protected void txtSave_Click(object sender, EventArgs e)
+{
+Label1.Text = "Your Name is " + txtName.Text + " and you are from " +
+txtcity.Text;
+}
+UserControlDisplay.aspx
+<%@ Page Language="C#" AutoEventWireup="true"
+CodeFile="UserControlDisplay.aspx.cs" Inherits="UserControlDisplay"
+%>
+<%@ Register Src="~/MyUserControl.ascx" TagPrefix="uc"
+TagName="Student"%>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title></title>
+</head>
+<body>
+<form id="form1" runat="server">
+<div>
+<uc:Student ID="studentcontrol" runat="server" />
+</div>
+</form>
+</body>
+</html>
