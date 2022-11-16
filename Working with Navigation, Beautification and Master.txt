@@ -1,0 +1,157 @@
+AIM:- Working with Navigation, Beautification and Master
+page
+A) Create a web application to demonstrate use of Master Page
+withapplying Styles and Themes for page beautification.
+MasterPage.master
+<%@ Master Language="C#" AutoEventWireup="true"
+CodeFile="MasterPage.master.cs"
+Inherits="MasterPage" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title>Master Page Demo</title>
+<link href="css/my.css" rel="stylesheet" />
+<asp:ContentPlaceHolder ID="head" runat="server">
+</asp:ContentPlaceHolder>
+<style type="text/css">
+.auto-style1 {
+position: absolute;
+top: 373px;
+left: 1028px;
+bottom: 303px;
+}
+.auto-style2 {
+position: absolute;
+top: 537px;
+left: 1016px;
+z-index: 1;
+}
+</style>
+</head>
+<body>
+
+
+<!DOCTYPE html>
+<form id="form1" runat="server">
+<html>
+<head>
+<title>Master</title>
+<link rel="stylesheet" type="text/css" href="StyleSheet.css">
+</head>
+<body>
+<header id="header">
+<h1>Demo Of Master Page</h1>
+</header>
+<nav id="nav">
+<ul>
+<li><a href="home.aspx">Insight</a></li>
+<li><a href="#">Products</a></li>
+<li><a href="#">Downloads</a></li>
+<li><a href="#">Contact Us</a></li>
+</ul>
+</nav>
+<aside id="side">
+<h1>Info</h1>
+<a href="#"><p>Product Type 1</p></a>
+<a href="#"><p>Product Type 2</p></a>
+<a href="#"><p>Product Type 3<a href="#"><asp:ScriptManager
+ID="ScriptManager1"
+runat="server">
+</asp:ScriptManager>
+</a>
+</p>
+<asp:Button ID="Button2" runat="server" CssClass="auto-style1"
+style="z-index: 1"
+Text="Button" />
+<asp:Button ID="Button1" runat="server" CssClass="auto-style2"
+Text="Button" />
+</aside>
+<div id="con">
+
+
+TYIT ADVANCED WEB PROGRAMMING MANUAL
+
+Khan S. Alam 58 https://E-next.in
+<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+</asp:ContentPlaceHolder>
+</div>
+<footer id="footer">
+copyright @Sambare
+</footer>
+</body>
+</html>
+</form>
+</body>
+</html>
+MasterDisplay.aspx
+<%@ Page Title="" Language="C#"
+MasterPageFile="~/MasterPage.master"
+AutoEventWireup="true" CodeFile="MasterDisplay.aspx.cs"
+Inherits="MasterDisplay" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head"
+runat="server">
+</asp:Content>
+<asp:Content ID="Content2"
+ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<h1>Home page</h1>
+</asp:Content>
+StyleSheet.css
+#header{
+color: blueviolet;
+text-align: center;
+font-size: 20px;
+}
+#nav{
+background-color:darkseagreen;
+padding: 5px;
+}
+
+
+
+ul{
+list-style-type: none;
+}
+li a {
+color:crimson ;
+font-size: 30px;
+column-width: 5%;
+}
+li
+{
+display: inline;
+padding-left: 2px;
+column-width: 20px;
+}
+a{
+text-decoration: none;
+margin-left:20px
+}
+li a:hover{
+background-color: aqua;
+color:coral ;
+padding:1%;
+}
+#side{
+text-align: center;
+float: right;
+width: 15%;
+padding-bottom: 79%;
+background-color: #F1FAEE;
+}
+#article{
+background-color: burlywood;
+padding: 10px;
+padding-bottom: 75%;
+}
+
+
+#footer{
+background-color: #C7EFCF;
+text-align:center;
+padding-bottom: 5%;
+font-size: 20px;
+}
+#con{
+border:double;
+border-color:burlywood;
+}
