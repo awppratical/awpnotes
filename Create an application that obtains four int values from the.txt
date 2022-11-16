@@ -1,0 +1,226 @@
+A)Create an application that obtains four int values from the
+user and displays the product.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace ConsoleApplication1
+{
+class Program
+{
+static void Main(string[] args)
+{
+int num1, num2, num3, num4, prod;
+Console.Write("Enter number 1: ");
+num1 = Int32.Parse(Console.ReadLine());
+Console.Write("Enter number 2: ");
+num2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter number 3: ");
+num3 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter number 4: ");
+num4 = Convert.ToInt32(Console.ReadLine());
+prod = num1 * num2 * num3 * num4;
+Console.WriteLine(num1 + "*" + num2 + "*" + num3 + "*" + num4 +
+"=" + prod);
+Console.ReadKey();
+}
+}
+}
+
+
+B) Create an application to demonstrate string operations.
+using System;
+namespace cmdLineArgs
+{
+class Program
+{
+static void Main(string[] args)
+{
+string str = args[0];
+int n = Convert.ToInt32(args[1]);
+Console.WriteLine("String:" + str);
+Console.WriteLine("Number:" + n);
+}
+}
+}
+
+C) Create an application that receives the (Student Id, Student
+Name, Course Name, Date of Birth) information from a set of
+students. The application should also display the information
+of all the students once the data entered.
+
+using System;
+namespace ArrayOfStructs
+{
+class Program
+{
+struct Student
+{
+public string studid, name, cname;
+public int day, month, year;
+}
+static void Main(string[] args)
+{
+Student[] s = new Student[5];
+int i;
+for (i = 0; i < 5; i++)
+{
+Console.Write("Enter Student Id:");
+s[i].studid = Console.ReadLine();
+Console.Write("Enter Student name : ");
+s[i].name = Console.ReadLine();
+Console.Write("Enter Course name : ");
+s[i].cname = Console.ReadLine();
+Console.Write("Enter date of birth\n Enter day(1-31):");
+s[i].day = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter month(1-12):");
+s[i].month = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter year:");
+s[i].year = Convert.ToInt32(Console.ReadLine());
+}
+
+
+Console.WriteLine("\n\nStudent's List\n");
+for (i = 0; i < 5; i++)
+{
+Console.WriteLine("\nStudent ID : " + s[i].studid);
+Console.WriteLine("\nStudent name : " + s[i].name);
+Console.WriteLine("\nCourse name : " + s[i].cname);
+Console.WriteLine("\nDate of birth(dd-mm-yy) : " + s[i].day + "-" +
+s[i].month +
+"-" + s[i].year);
+} } } }
+
+D) Create an application to demonstrate following operations
+[i] Fibonacci Series
+using System;
+namespace ConsoleApplication3
+{
+class Program
+{
+static void Main(string[] args)
+{
+int num1=0,num2=1,num3,num4,num,counter;
+Console.Write ("Upto how many number you want fibonacci series:");
+num=int.Parse(Console.ReadLine());
+counter=3;
+Console.Write(num1+"\t"+num2);
+while(counter<=num)
+{
+num3 = num1 + num2;
+if (counter >= num)
+
+break;
+Console.Write("\t" + num3);
+num1 = num2;
+num2 = num3;
+counter++;
+}
+}
+}
+}
+
+Test for prime numbers.
+CODE:
+using System;
+namespace testprime
+{
+class Program
+{
+static void Main(string[] args)
+{
+int num, counter;
+Console.Write("Enter number:");
+num = int.Parse(Console.ReadLine());
+for (counter = 2; counter <= num / 2; counter++)
+{
+if ((num % counter) == 0)
+
+break;
+}
+if (num == 1)
+Console.WriteLine(num + "is neither prime nor composite");
+else if(counter<(num/2))
+Console.WriteLine(num+"is not prime number");
+else
+Console.WriteLine(num+"is prime number");
+}
+}
+}
+
+Test for vowels.
+CODE:
+using System;
+namespace vowels
+{
+class Program
+{
+static void Main(string[] args)
+{
+char ch;
+Console.Write("Enter a character : ");
+ch = (char)Console.Read();
+switch (ch)
+{
+case 'a':
+case 'A':
+case 'e':
+case 'E':
+case 'i':
+case 'I':
+case 'o':
+case 'O':
+case 'u':
+case 'U':
+Console.WriteLine(ch + "is vowel");
+break;
+default:
+Console.Write(ch + "is not a vowel");
+break;
+}
+Console.ReadKey();
+}
+}
+}
+
+
+[iv]Use of foreach loop with arrays.
+CODE:
+} using System;
+class ExampleForEach
+{
+public static void Main()
+{
+string[] str = { "Shield", "Evaluation", "DX" };
+foreach (String s in str)
+{
+Console.WriteLine(s);
+}
+}
+
+[v] Reverse a number and find sum of digits of a number.
+CODE:
+using System;
+namespace reverseNumber
+{
+
+class Program
+{
+static void Main(string[] args)
+{
+int num,actualnumber,revnum=0,digit,sumDigits=0;
+Console.Write("Enter number:");
+num = int.Parse(Console.ReadLine());
+actualnumber = num;
+while (num > 0)
+{
+digit = num % 10;
+revnum = revnum * 10 + digit;
+sumDigits=sumDigits+digit;
+num = num / 10;
+}
+Console.WriteLine("Reverse of " + actualnumber + "=" + revnum);
+Console.WriteLine("Sum of its digits:" + sumDigits);}}}
+
+
