@@ -1,0 +1,648 @@
+AIM: Working with Object Oriented C# and ASP .NET
+A) Create simple application to perform following operations.
+[i] Finding Factorial Value
+
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace factorial
+{
+class Program
+{
+static void Main(string[] args)
+{
+int i, number, fact;
+Console.WriteLine("Enter the Number");
+number = int.Parse(Console.ReadLine());
+fact = number;
+for (i = number - 1; i >= 1; i--)
+{
+fact = fact * i;
+}
+Console.WriteLine("\nFactorial of Given Number is: "+fact);
+Console.ReadLine();
+}
+}
+}
+[ii] Money Conversion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace CurrencyConversion
+{
+class Program
+{
+static void Main(string[] args)
+{
+int choice;
+Console.WriteLine(&quot;Enter your Choice :\n 1- Dollar to Rupee \n 2-
+Euro to Rupee \n 3- Malaysian
+Ringgit to Rupee &quot;);
+choice = int.Parse(Console.ReadLine());
+switch (choice)
+{
+case 1:
+Double dollar, rupee, val;
+Console.WriteLine(&quot;Enter the Dollar Amount :&quot;);
+dollar = Double.Parse(Console.ReadLine());
+Console.WriteLine(&quot;Enter the Dollar Value :&quot;);
+val = double.Parse(Console.ReadLine());
+rupee = dollar * val;
+Console.WriteLine(&quot;{0} Dollar Equals {1} Rupees&quot;, dollar,
+rupee);
+break;
+case 2:
+Double Euro, rupe, valu;
+Console.WriteLine(&quot;Enter the Euro Amount :&quot;);
+Euro = Double.Parse(Console.ReadLine());
+
+Console.WriteLine(&quot;Enter the Euro Value :&quot;);
+valu = double.Parse(Console.ReadLine());
+rupe = Euro * valu;
+Console.WriteLine(&quot;{0} Euro Equals {1} Rupees&quot;, Euro, rupe);
+break;
+case 3:
+Double ringit, rup, value;
+Console.WriteLine(&quot;Enter the Ringgit Amount :&quot;);
+ringit = Double.Parse(Console.ReadLine());
+Console.WriteLine(&quot;Enter the Ringgit Value :&quot;);
+value = double.Parse(Console.ReadLine());
+rup = ringit * value;
+Console.WriteLine(&quot;{0} Malaysian Ringgit Equals {1} Rupees&quot;,
+ringit, rup);
+break;
+}
+Console.ReadLine();
+}
+}
+}
+[iii] Quadratic Equation
+
+using System;
+namespace example
+{
+class Quadraticroots
+{
+double a, b, c;
+public void read()
+{
+Console.WriteLine(" \n To find the roots of a quadratic equation of
+the form a*x*x + b*x + c = 0");
+Console.Write("\n Enter value for a : ");
+a = double.Parse(Console.ReadLine());
+Console.Write("\n Enter value for b : ");
+b = double.Parse(Console.ReadLine());
+Console.Write("\n Enter value for c : ");
+c = double.Parse(Console.ReadLine());
+}
+public void compute()
+{
+int m;
+double r1, r2, d1;
+d1 = b * b - 4 * a * c;
+if (a == 0)
+m = 1;
+else if (d1 > 0)
+m = 2;
+else if (d1 == 0)
+m = 3;
+else
+m = 4;
+switch (m)
+
+https://E-next.in
+
+TYIT ADVANCED WEB PROGRAMMING MANUAL
+
+Khan S. Alam 19 https://E-next.in
+{
+case 1: Console.WriteLine("\n Not a Quadratic equation, Linear
+equation");
+Console.ReadLine();
+break;
+case 2: Console.WriteLine("\n Roots are Real and Distinct");
+r1 = (-b + Math.Sqrt(d1)) / (2 * a);
+r2 = (-b - Math.Sqrt(d1)) / (2 * a);
+Console.WriteLine("\n First root is {0:#.##}", r1);
+Console.WriteLine("\n Second root is {0:#.##}", r2);
+Console.ReadLine();
+break;
+case 3: Console.WriteLine("\n Roots are Real and Equal");
+r1 = r2 = (-b) / (2 * a);
+Console.WriteLine("\n First root is {0:#.##}", r1);
+Console.WriteLine("\n Second root is {0:#.##}", r2);
+Console.ReadLine();
+break;
+case 4: Console.WriteLine("\n Roots are Imaginary");
+r1 = (-b) / (2 * a);
+r2 = Math.Sqrt(-d1) / (2 * a);
+Console.WriteLine("\n First root is {0:#.##} + i {1:#.##}", r1, r2);
+Console.WriteLine("\n Second root is {0:#.##} - i {1:#.##}", r1,
+r2);
+Console.ReadLine();
+break;
+}
+}
+}
+class Roots
+{
+public static void Main()
+{
+Quadraticroots qr = new Quadraticroots();
+qr.read();
+qr.compute();
+}
+}
+}
+
+[iv] Temperature Conversion
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace temperatureconversion
+{
+class Program
+{
+static void Main(string[] args)
+{
+int celsius, faren;
+Console.WriteLine("Enter the Temperature in Celsius(°C) : ");
+celsius = int.Parse(Console.ReadLine());
+faren = (celsius * 9) / 5 + 32;
+Console.WriteLine("0Temperature in Fahrenheit is(°F) : " + faren);
+Console.ReadLine();
+}
+}
+}
+
+
+B) Create simple application to demonstrate use of following concepts.
+[i] Function Overloading
+using System;
+namespace swap
+{
+class Overloading
+{
+public void swap(ref int n, ref int m)
+{
+int t;
+t = n;
+n = m;
+m = t;
+}
+public void swap(ref float f1, ref float f2)
+{
+float f;
+f = f1;
+f1 = f2;
+f2 = f;
+}
+}
+class program
+{
+static void Main(string[] args)
+{
+Overloading objOverloading = new Overloading();
+int n = 10, m = 20;
+objOverloading.swap(ref n, ref m);
+Console.WriteLine("N=" + n + "\tM=" + m);
+float f1 = 10.5f, f2 = 20.6f;
+objOverloading.swap(ref f1, ref f2);
+Console.WriteLine("F1=" + f1 + "\tF2=" + f2);
+
+}
+}
+}
+[ii] Inheritance
+(a) Single Inheritance
+Write a program to implement single inheritance from following
+figure. Accept and
+display data for one table.
+CODE:
+Furniture.cs
+using System;
+namespace SingleInheritance
+{
+class Furniture
+{
+string material;
+float price;
+public void getdata()
+{
+Console.Write("Enter material : ");
+material = Console.ReadLine();
+Console.Write("Enter price : ");
+price = float.Parse(Console.ReadLine());
+}
+public void showdata()
+{
+Console.WriteLine("Material : " + material);
+Console.WriteLine("Price : " + price);
+} } }
+Table.cs
+using System;
+namespace SingleInheritance
+{
+class Table:Furniture
+{
+int height, surface_area;
+
+https://E-next.in
+
+TYIT ADVANCED WEB PROGRAMMING MANUAL
+
+Khan S. Alam 25 https://E-next.in
+
+public void getdata()
+{
+base.getdata();
+Console.Write("Enter height: ");
+height = int.Parse(Console.ReadLine());
+Console.Write("Enter surface area: ");
+surface_area = int.Parse(Console.ReadLine());
+}
+public void showdata()
+{
+base.showdata();
+Console.WriteLine("Height : " + height);
+Console.WriteLine("Surface Area : " + surface_area);
+} } }
+Program.cs
+using System;
+namespace SingleInheritance
+{
+class Program
+{
+static void Main(string[] args)
+{
+Table t1 = new Table();
+t1.getdata();
+t1.showdata();
+} } }
+
+
+
+[ii](b) Multiple inheritance
+CODE:
+Gross.cs
+using System;
+namespace MultipleInheritance
+{
+interface Gross
+{
+int ta
+{
+get;
+set;
+}
+int da
+{
+get;
+set;
+}
+int GrossSal();
+} }
+Employee.cs
+using System;
+namespace MultipleInheritance
+{
+class Employee
+{
+string name;
+public Employee(string name)
+{ this.name = name; }
+public int BasicSal(int basicSal)
+{ return basicSal; }
+public void ShowData()
+{
+Console.WriteLine("Name : " + name);
+} } }
+
+Salary.cs
+using System;
+namespace MultipleInheritance
+{
+class Salary:employee,Gross
+{
+int hra;
+public Salary(string name, int hra):base(name)
+{ this.hra = hra; }
+public int ta
+{
+get {return S_ta; }
+set { S_ta = value; }
+}
+private int S_ta;
+public int da
+{
+get { return S_da; }
+set { S_da = value; }
+}
+private int S_da;
+public int GrossSal()
+{
+int gSal;
+gSal = hra + ta + da + BasicSal(15000);
+return gSal;
+}
+public void dispSal()
+{ base.ShowData();
+Console.WriteLine("Gross Sal : " + GrossSal());
+} } }
+Program.cs
+using System;
+namespace MultipleInheritance
+{
+class Program
+
+
+{
+static void Main(string[] args)
+{
+Salary s = new Salary("Prachit", 35000);
+s.da = 20000;
+s.ta = 30000;
+s.dispSal();
+} } }
+
+
+
+(ii)[c] Heirarchical Inheritance
+CODE:
+Employee.cs
+using System;
+namespace HeirarchicalInheritance
+{
+class employee
+{
+public virtual void display()
+{
+Console.WriteLine("Display of employee class called ");
+} } }
+Programmer.cs
+using System;
+namespace HeirarchicalInheritance
+{
+class Programmer:employee
+{
+
+public void display()
+{
+Console.WriteLine(" Display of Programmer class called ");
+} } }
+Manager.cs
+using System;
+namespace HeirarchicalInheritance
+{
+class Manager
+{
+public void display()
+{
+Console.WriteLine("Display of manager class called ");
+} } }
+Program.cs
+using System;
+namespace HeirarchicalInheritance
+{
+class Program
+{
+static void Main(string[] args)
+{
+Programmer objProgrammer;
+Manager objManager;
+Console.Write("Whose details you want to use to see \n
+1.Programmer \n
+2.Manager");
+int choice=int.Parse(Console.ReadLine());
+if(choice==1)
+{
+objProgrammer=new Programmer();
+objProgrammer.display();
+}
+else if(choice==2)
+{
+objManager=new Manager();
+objManager.display();
+}
+else
+{
+Console.WriteLine("Wrong choice entered");
+} } } }
+
+
+(ii)[d] Multilevel Inheritance
+Result.cs
+using System;
+namespace multilevelinheritance
+{
+class Result:Test
+{
+int total;
+public Result(int roll_no, string name, int marks1, int marks2)
+: base(roll_no, name, marks1, marks2)
+{
+total = getMarks1() + getMarks2();
+}
+public void display()
+{
+base.display();
+Console.WriteLine("Total: " + total);
+} } }
+Test.cs
+using System;
+namespace multilevelinheritance
+{
+class Test:student
+{
+int marks1, marks2;
+public Test(int roll_no, string name, int marks1, int marks2)
+: base(roll_no, name)
+{
+this.marks1 = marks1;
+this.marks2 = marks2;
+}
+
+https://E-next.in
+
+TYIT ADVANCED WEB PROGRAMMING MANUAL
+
+Khan S. Alam 32 https://E-next.in
+
+public int getMarks1()
+{
+return marks1;
+}
+public int getMarks2()
+{
+return marks2;
+}
+public void dispaly()
+{
+base.display();
+Console.WriteLine("Marks1: " + marks1);
+Console.WriteLine("Marks2: " + marks2);
+} } }
+
+Student.cs
+using System;
+namespace multilevelinheritance
+{
+class student
+{
+int roll_no;
+string name;
+public student(int roll_no, string name)
+{
+this.roll_no = roll_no;
+this.name = name;
+}
+public student() { }
+public void display()
+{
+Console.WriteLine("Roll no: " + roll_no);
+Console.WriteLine("Name: " + name);
+} } }
+
+https://E-next.in
+
+TYIT ADVANCED WEB PROGRAMMING MANUAL
+
+Khan S. Alam 33 https://E-next.in
+
+Program.cs
+using System;
+namespace multilevelinheritance
+{
+class Program
+{
+static void Main(string[] args)
+{
+Result r1 = new Result(101, "Prachit", 50, 70);
+r1.display();
+} } }
+
+
+
+[iii] Constructor Overloading
+Salary.cs
+using System;
+namespace SalaryConstructure
+{
+class Salary
+{
+int basic, ta, da, hra;
+public Salary()
+{
+da = 9000;
+hra = 6000;
+}
+public void getdata()
+{
+Console.Write("Enter basic salary : ");
+basic = int.Parse(Console.ReadLine());
+Console.Write("Enter travelling allowance : ");
+ta = int.Parse(Console.ReadLine());
+}
+public void showdata()
+{
+Console.WriteLine("Basic salary : " + basic);
+Console.WriteLine("Dearness allowence : " + da);
+Console.WriteLine("Housing rent allowence : " + hra);
+Console.WriteLine("Travelling allowence : " + ta);
+Console.WriteLine("Gross Salary : " + (basic + da + hra + ta));
+} } }
+
+Program.cs
+using System;
+namespace SalaryConstructure
+{
+class Program
+{
+static void Main(string[] args)
+{
+Salary s = new Salary();
+s.getdata();
+s.showdata();
+} } }
+
+
+
+(iv) Interfaces
+ODDEVEN.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace InterFaceDemo {
+interface IOne {
+void ONE(); //Pure Abstract Method Signature
+}
+interface ITwo {
+void TWO();
+}
+interface IThree: IOne {
+void THREE();
+}
+
+interface IFour {
+void FOUR();
+}
+interface IFive: IThree {
+void FIVE();
+}
+interface IEVEN: ITwo, IFour {}
+class ODDEVEN: IEVEN, IFive //Must Implement all the abstract method, in
+Derived class.
+{
+public void ONE() //Implementation of Abstract Method.
+{
+Console.WriteLine("This is ONE");
+}
+public void TWO() {
+Console.WriteLine("This is TWO");
+}
+public void THREE() {
+Console.WriteLine("This is THERE");
+}
+public void FOUR() {
+Console.WriteLine("This is FOUR");
+
+}
+public void FIVE() {
+Console.WriteLine("This is FIVE");
+}
+}
+}
+
+
+
+Program.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace InterFaceDemo {
+class Program {
+static void Main(string[] args) {
+Console.WriteLine("This is ODD");
+IFive obj1 = new ODDEVEN();
+obj1.ONE();
+obj1.THREE();
+obj1.FIVE();
+Console.WriteLine("\n\nThis is EVEN");
+IEVEN obj2 = new ODDEVEN();
+obj2.TWO();
+
+obj2.FOUR();
+Console.ReadLine();
+}
+}
+}
+
+
+
+
